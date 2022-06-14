@@ -1,17 +1,17 @@
+#include <unordered_map>
+#include <stack>
+#include <string>
 #include "solution.h"
 #include "util.h"
-#include <unordered_set>
-#include <numeric>
-#include <iterator>
-#include <unordered_map>
-#include <deque>
-#include <string>
-#include <sstream>
-#include <algorithm>
-#include <stack>
-#include <functional>
+
 using namespace sol49;
 using namespace std;
+
+/*takeaways
+  - use stack
+  - use a hash table to pair up parenthesis
+    to simplify the code
+*/
 
 bool Solution::isValid(string s)
 {
@@ -22,7 +22,7 @@ bool Solution::isValid(string s)
   {
     if (m.count(c))
       stk.push(c);
-    /* pop it out if there is a match */  
+    /* pop it out if there is a match */
     else if (!stk.empty() && m[stk.top()] == c)
       stk.pop();
   }
